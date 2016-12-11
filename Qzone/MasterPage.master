@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="top">
+        <asp:Image ID="title" runat="server" ImageUrl="~/73G58PICNRK.jpg" Height="227px" Width="888px" />
+        <br />
+        <asp:Label ID="username" runat="server" ></asp:Label>的空间
+        <br />
+        空间名：<asp:Label ID="qname" runat="server" ></asp:Label>
+        <asp:LinkButton ID="editorqname" runat="server" Visible="true" Text="修改空间名" OnClick="editorqname_Click"></asp:LinkButton>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="trend" runat="server" Text="动态" OnClick="trend_Click" />&nbsp;
+        <asp:LinkButton ID="information" runat="server" Text="消息" OnClick="information_Click"></asp:LinkButton>
+        (<asp:Label  ID="lbinf" runat="server"></asp:Label>)&nbsp;
+        <asp:Button ID="logout" runat="server" Text="注销" OnClick="logout_Click" />
+        <asp:Button ID="first" runat="server" Text="我的首页" OnClick="first_Click" />
+        <br />
+        <asp:Image ID="userimage" runat="server" Width="200px" Height="150px" />
+        <asp:LinkButton ID="editorimage" runat="server" Visible="true" Text="修改空间头像" OnClick="editorimage_Click"></asp:LinkButton>
+        <br />
+        欢迎您，用户<asp:Label ID="welcome" runat="server" ></asp:Label>
+        <br />
+        <asp:Button ID="qzone" runat="server" Text="qq空间首页" OnClick="qzone_Click" />
+        <asp:Button ID="friends" runat="server" Text="好友" OnClick="friends_Click" />
+        <asp:Button ID="users" runat="server" Text="个人档"  OnClick="users_Click" />
+        <asp:Button ID="log" runat="server" Text="说说"  OnClick="log_Click" />
+        <asp:Button ID="blog" runat="server" Text="日志" OnClick="blog_Click" />
+        <asp:Button ID="photo" runat="server" Text="照片墙" OnClick="photo_Click" />
+        <asp:Button ID="message" runat="server" Text="留言板" OnClick="message_Click" />
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
