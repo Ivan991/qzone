@@ -366,7 +366,7 @@ public partial class Informations_InfContents : System.Web.UI.Page
 
                     int result1 = sqlh.sqlhelper(sql2, sqls2);  //如果数据更新失败
 
-                    Response.Write("<script>alert('评论成功');location='/Trend.aspx?id=" + Session["id"].ToString() + "'</script>");
+                    Response.Write("<script>alert('评论成功');location='/Informations/InfContents.aspx?id=" + Request.QueryString["id"] + "&id1=" + Request.QueryString["id1"] + "'</script>");
                 }
                 else
 
@@ -434,7 +434,7 @@ public partial class Informations_InfContents : System.Web.UI.Page
 
                     int result1 = sqlh.sqlhelper(sql2, sqls2);  //如果数据更新失败
 
-                    Response.Write("<script>alert('评论成功');location='/Trend.aspx?id=" + Session["id"].ToString() + "'</script>");
+                    Response.Write("<script>alert('评论成功');location='/Informations/InfContents.aspx?id=" + Request.QueryString["id"] + "&id1=" + Request.QueryString["id1"] + "'</script>");
                 }
 
                 else
@@ -504,7 +504,7 @@ public partial class Informations_InfContents : System.Web.UI.Page
 
                     int result1 = sqlh.sqlhelper(sql2, sqls2);  //如果数据更新失败
 
-                    Response.Write("<script>alert('评论成功');location='/Trend.aspx?id=" + Session["id"].ToString() + "'</script>");
+                    Response.Write("<script>alert('评论成功');location='/Informations/InfContents.aspx?id=" + Request.QueryString["id"] + "&id1="+Request.QueryString["id1"]+"'</script>");
                 }
 
                 else
@@ -530,23 +530,77 @@ public partial class Informations_InfContents : System.Web.UI.Page
 
         if (e.CommandName == "report2")    //按转发日志显示转发框
         {
-            ((DropDownList)e.Item.FindControl("DropDownList2")).Visible = true;//转发分类
 
-            ((Button)e.Item.FindControl("Button2")).Visible = true;
+            string sqlc = "select * from BlogCategory where OwnId=@id";//查找分类
 
-            ((DropDownList)e.Item.FindControl("reportstate2")).Visible = true;
+            SqlParameter[] sqlsc = { new SqlParameter("@id", Session["id"].ToString()) };
+
+            DataTable dtc = sqlh.sqlselect(sqlc, sqlsc);
+
+            if (dtc.Rows.Count > 0)
+            {
+                DropDownList reportcategory = (DropDownList)e.Item.FindControl("DropDownList2");//转发分类
+
+                reportcategory.Visible = true;
+
+                ((Button)e.Item.FindControl("Button2")).Visible = true;
+
+                ((DropDownList)e.Item.FindControl("reportstate2")).Visible = true;
+
+                for (int i = 0; i < dtc.Rows.Count; i++)
+                {
+                    string idc = dtc.Rows[i][0].ToString();
+
+                    string categoryc = dtc.Rows[i][1].ToString();
+
+                    reportcategory.Items.Add(new ListItem(categoryc, idc));//循环动态绑定分类
+
+                }
+            }
+            else
+            {
+                LinkButton add = (LinkButton)e.Item.FindControl("add0");
+
+                add.Visible = true;
+            }
 
         }
 
         if (e.CommandName == "report3")    //按转发照片显示转发框
         {
-            ((DropDownList)e.Item.FindControl("DropDownList3")).Visible = true;//转发到哪个相册
 
-            ((Label)e.Item.FindControl("Label3")).Visible = true;
+            string sql = "select * from Album where OwnId=@id";
 
-            ((TextBox)e.Item.FindControl("TextBox3")).Visible = true;
+            SqlParameter[] sqls = { new SqlParameter("@id", Session["id"]) };
 
-            ((Button)e.Item.FindControl("Button3")).Visible = true;
+            DataTable dt = sqlh.sqlselect(sql, sqls);
+
+            if (dt.Rows.Count > 0)
+            {
+                DropDownList reportcategory = (DropDownList)e.Item.FindControl("DropDownList3");//转发到哪个相册
+
+                reportcategory.Visible = true;
+
+                ((Label)e.Item.FindControl("Label3")).Visible = true;
+
+                ((TextBox)e.Item.FindControl("TextBox3")).Visible = true;
+
+                ((Button)e.Item.FindControl("Button3")).Visible = true;
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string idc = dt.Rows[i][0].ToString();
+
+                    string categoryc = dt.Rows[i][1].ToString();
+
+                    reportcategory.Items.Add(new ListItem(categoryc, idc));//循环动态绑定分类
+
+                }
+            }
+
+            else
+
+                ((LinkButton)e.Item.FindControl("add")).Visible = true;
 
         }
 
@@ -792,7 +846,7 @@ public partial class Informations_InfContents : System.Web.UI.Page
 
                 int result1 = sqlh.sqlhelper(sql2, sqls2);  //如果数据更新失败
 
-                Response.Write("<script>alert('删除成功');location='/Trend.aspx?id=" + Session["id"].ToString() + "'</script>");    //刷新界面
+                Response.Write("<script>alert('删除成功');location='/Informations/InfContents.aspx?id=" + Request.QueryString["id"] + "&id1=" + Request.QueryString["id1"] + "'</script>");    //刷新界面
             }
             else
 
@@ -889,7 +943,7 @@ public partial class Informations_InfContents : System.Web.UI.Page
 
                     int sid = Convert.ToInt32(Request.QueryString["id"]);
 
-                    Response.Write("<script>alert('评论成功！');location='/Trend.aspx?id=" + Session["id"].ToString() + "'</script>");
+                    Response.Write("<script>alert('评论成功！');location='/Informations/InfContents.aspx?id=" + Request.QueryString["id"] + "&id1=" + Request.QueryString["id1"] + "'</script>");
 
                 }
 
@@ -942,7 +996,7 @@ public partial class Informations_InfContents : System.Web.UI.Page
 
                 int result1 = sqlh.sqlhelper(sql2, sqls2);  //如果数据更新失败
 
-                Response.Write("<script>alert('删除成功');location='/Trend.aspx?id=" + Session["id"].ToString() + "'</script>");    //刷新界面
+                Response.Write("<script>alert('删除成功');location='/Informations/InfContents.aspx?id=" + Request.QueryString["id"] + "&id1=" + Request.QueryString["id1"] + "'</script>");    //刷新界面
             }
             else
 
@@ -1039,7 +1093,7 @@ public partial class Informations_InfContents : System.Web.UI.Page
 
                     int sid = Convert.ToInt32(Request.QueryString["id"]);
 
-                    Response.Write("<script>alert('评论成功！');location='/Trend.aspx?id=" + Session["id"].ToString() + "'</script>");
+                    Response.Write("<script>alert('评论成功！');location='/Informations/InfContents.aspx?id=" + Request.QueryString["id"] + "&id1=" + Request.QueryString["id1"] + "'</script>");
 
                 }
 
@@ -1092,7 +1146,7 @@ public partial class Informations_InfContents : System.Web.UI.Page
 
                 int result1 = sqlh.sqlhelper(sql2, sqls2);  //如果数据更新失败
 
-                Response.Write("<script>alert('删除成功');location='/Trend.aspx?id=" + Session["id"].ToString() + "'</script>");    //刷新界面
+                Response.Write("<script>alert('删除成功');location='/Informations/InfContents.aspx?id=" + Request.QueryString["id"] + "&id1=" + Request.QueryString["id1"] + "'</script>");    //刷新界面
             }
             else
 
@@ -1187,7 +1241,7 @@ public partial class Informations_InfContents : System.Web.UI.Page
 
                     int sid = Convert.ToInt32(Request.QueryString["id"]);
 
-                    Response.Write("<script>alert('评论成功！');location='/Trend.aspx?id=" + Session["id"].ToString() + "'</script>");
+                    Response.Write("<script>alert('评论成功！');location='/Informations/InfContents.aspx?id=" + Request.QueryString["id"] + "&id1=" + Request.QueryString["id1"] + "'</script>");
 
                 }
                 else
@@ -1201,5 +1255,14 @@ public partial class Informations_InfContents : System.Web.UI.Page
         }
     }
 
+    protected void add_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/Photos/NewAlbum.aspx?id=" + Session["id"] + "");
+    }
 
+
+    protected void add0_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/Blogs/ECategory.aspx?id=" + Session["id"].ToString() + "");
+    }
 }

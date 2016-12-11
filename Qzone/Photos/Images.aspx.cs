@@ -83,7 +83,7 @@ public partial class Photos_Images : System.Web.UI.Page
                             btnupload.Visible = false;
                         }
 
-                        string sql1 = "select * from Photo where AlbumId=@id order by Dates ";  //按时间顺序找出该相册的照片
+                        string sql1 = "select * from Photo where AlbumId=@id order by Dates desc";  //按时间顺序找出该相册的照片
 
                         SqlParameter[] sqls1 = { new SqlParameter("@id", id1) };
 
@@ -93,7 +93,7 @@ public partial class Photos_Images : System.Web.UI.Page
 
                         photos.DataBind();//把repeater显示出来
 
-                        string sql2 = "select * from Photo where AlbumId=@id order by Dates ";  //按时间顺序找出该相册的照片
+                        string sql2 = "select * from Photo where AlbumId=@id order by Dates desc";  //按时间顺序找出该相册的照片
 
                         SqlParameter[] sqls2 = { new SqlParameter("@id", id1) };
 
@@ -132,7 +132,7 @@ public partial class Photos_Images : System.Web.UI.Page
 
             int id = Convert.ToInt32(rowv["PhotoId"]);        //提取外层repeater中的数据
 
-            string sql = "select * from ComPhoto where ToId=@toid order by Dates";    //在数据库中查找
+            string sql = "select * from ComPhoto where ToId=@toid order by Dates ";    //在数据库中查找
 
             SqlParameter[] sqls = { new SqlParameter("@toid", id) };
 
@@ -248,7 +248,7 @@ public partial class Photos_Images : System.Web.UI.Page
 
             string sql = "select * from Album where OwnId=@id";
 
-            SqlParameter[] sqls = { new SqlParameter("@id", Request.QueryString["id"]) };
+            SqlParameter[] sqls = { new SqlParameter("@id",Session["id"]) };
 
             DataTable dt = sqlh.sqlselect(sql, sqls);
 

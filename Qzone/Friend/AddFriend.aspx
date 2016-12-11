@@ -8,7 +8,7 @@
     <br />
     空间名;<asp:LinkButton ID="linkbutton1" runat="server"  OnClick="linkbutton1_Click"></asp:LinkButton>
     <br />
-    空间头像：<asp:Image ID="image" runat="server" />
+    空间头像：<asp:Image Height="100px" Width="100px" ID="image" runat="server" />
     <br />
     状态:<asp:Label ID="lable" runat="server"></asp:Label>
 

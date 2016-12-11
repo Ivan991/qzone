@@ -31,7 +31,6 @@ public partial class Qzone_Photo : System.Web.UI.Page
                     DataTable dt = sqlh.sqlselect(sql, sqls);
 
                     if (dt.Rows.Count > 0)
-
                     {
 
                         if (Session["id"].ToString() != Request.QueryString["id"].ToString())//如果登录id不等于空间用户id
@@ -46,7 +45,7 @@ public partial class Qzone_Photo : System.Web.UI.Page
 
                             lbnewalbum.Visible = false;//显示新建相册和编辑和删除的控件
 
-                            string sql0 = "select * from AlbumC where OwnId=@id and State=1 order by Dates ";
+                            string sql0 = "select * from AlbumC where OwnId=@id and State=1 order by Dates desc";
 
                             SqlParameter[] sqls0 = { new SqlParameter("@id", id) };
 
@@ -55,6 +54,14 @@ public partial class Qzone_Photo : System.Web.UI.Page
                             photo.DataSource = bind;  //把分页对象绑定到repeater
 
                             photo.DataBind();
+
+                            string sql1 = "select * from AlbumC where OwnId=@id and State=1 order by Dates desc";
+
+                            SqlParameter[] sqls1 = { new SqlParameter("@id", id) };
+
+                            DataTable dt1 = sqlh.sqlselect(sql1, sqls1);
+
+                            lbacount.Text = dt1.Rows.Count.ToString();
 
                             lbTotal.Text = bind.PageCount.ToString();  //显示总页数
 
@@ -78,7 +85,7 @@ public partial class Qzone_Photo : System.Web.UI.Page
                         }
                         else
                         {
-                            string sql0 = "select * from AlbumC where OwnId=@id order by Dates ";
+                            string sql0 = "select * from AlbumC where OwnId=@id order by Dates desc";
 
                             SqlParameter[] sqls0 = { new SqlParameter("@id", id) };
 
@@ -87,6 +94,14 @@ public partial class Qzone_Photo : System.Web.UI.Page
                             photo.DataSource = bind;  //把分页对象绑定到repeater
 
                             photo.DataBind();
+
+                            string sql1 = "select * from AlbumC where OwnId=@id order by Dates desc";
+
+                            SqlParameter[] sqls1 = { new SqlParameter("@id", id) };
+
+                            DataTable dt1 = sqlh.sqlselect(sql1, sqls1);
+
+                            lbacount.Text = dt1.Rows.Count.ToString();
 
                             lbTotal.Text = bind.PageCount.ToString();  //显示总页数
 
@@ -342,7 +357,7 @@ public partial class Qzone_Photo : System.Web.UI.Page
 
             int result = sqlh.sqlhelper(sql, sqls);   //执行删除操作
 
-            string sql1 = "delete from Photo where AlbumId=@id";
+            string sql1 = "delete from Photo where AlbumId=@id";//删除相册里的所有照片
 
             SqlParameter[] sqls1 = { new SqlParameter("@id", albumid) };
 

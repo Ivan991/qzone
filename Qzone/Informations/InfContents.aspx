@@ -81,7 +81,8 @@
                     <asp:LinkButton ID="LinkButton2" runat="server" Text="转发" CommandName="report2" CommandArgument='<%# Eval("Id")%>'></asp:LinkButton>
                     <%--选择到转发的分类--%>
                     <asp:DropDownList ID="DropDownList2" Visible="false" runat="server"></asp:DropDownList>
-                        
+                            <asp:LinkButton ID="add0" runat="server"  Text="日志未分类，请添加分类"  OnClick="add0_Click" Visible="false"></asp:LinkButton>
+
                             <%--转发权限--%>
                     <asp:DropDownList ID="reportstate2" runat="server" Visible="false" ><asp:ListItem Selected="True" Value="1">所有人可见</asp:ListItem ><asp:ListItem Value="0">仅自己可见</asp:ListItem></asp:DropDownList>
              
@@ -133,6 +134,7 @@
                     <asp:LinkButton ID="LinkButton3" runat="server" Text="转发" CommandName="report3" CommandArgument='<%# Eval("Id")%>'></asp:LinkButton>
                     <%--选择转发到的相册--%>
                     <asp:DropDownList ID="DropDownList3" Visible="false" runat="server"></asp:DropDownList>
+                    <asp:LinkButton ID="add" runat="server" Visible="false" Text="当前没有可用相册请添加相册" OnClick="add_Click"></asp:LinkButton>
 
                     <asp:Label ID="Label3" runat="server" Text="照片描述" Visible="false"></asp:Label>
 

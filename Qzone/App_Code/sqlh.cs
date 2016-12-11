@@ -23,11 +23,7 @@ public class sqlh
         //
         // TODO: 在此处添加构造函数逻辑
         //
-    }
-
-
-
-   
+    }  
 
     public enum FileExtension   //检查上传文件的头文件的函数
     {

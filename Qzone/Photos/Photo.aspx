@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <br />
     
-    相册
+    相册(<asp:Label ID="lbacount" runat="server"></asp:Label> )
     <br />
     <asp:Button ID="lbnewalbum" runat="server" Text="新建相册"  OnClick="lbnewalbum_Click" />
     <br />
