@@ -53,14 +53,23 @@ public partial class Blogs_NewBlog : System.Web.UI.Page
 
                         DataTable dtc = sqlh.sqlselect(sqlc, sqlsc);
 
-                        for (int i = 0; i < dtc.Rows.Count; i++)
+                        if (dtc.Rows.Count > 0)
                         {
-                            string idc = dtc.Rows[i][0].ToString();
+                            for (int i = 0; i < dtc.Rows.Count; i++)
+                            {
+                                string idc = dtc.Rows[i][0].ToString();
 
-                            string categoryc = dtc.Rows[i][1].ToString();
+                                string categoryc = dtc.Rows[i][1].ToString();
 
-                            category.Items.Add(new ListItem(categoryc, idc));//循环动态绑定分类
+                                category.Items.Add(new ListItem(categoryc, idc));//循环动态绑定分类
 
+                            }
+                        }
+                        else
+                        {
+                            category.Visible = false;
+
+                            add0.Visible = true;
                         }
                     }
                     else
@@ -136,5 +145,11 @@ public partial class Blogs_NewBlog : System.Web.UI.Page
 
             Response.Write("<script>alert('发表日志内容不能为空')</script>");
 
+    }
+
+
+    protected void add0_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/Blogs/ECategory.aspx?id=" + Session["id"].ToString() + "");
     }
 }

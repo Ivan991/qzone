@@ -20,7 +20,7 @@
     <asp:FileUpload  ID="upload"  runat="server" />
     <br />
     <asp:Label ID="uploadname1" runat="server" Text="图片描述："></asp:Label>
-    <asp:TextBox ID="describe"  runat="server" ></asp:TextBox>
+    <asp:TextBox ID="describe" TextMode="MultiLine"  runat="server" ></asp:TextBox>
     <br />
     <br />
     <asp:Button ID="btnupload" runat="server"  Text="上传" OnClick="btnupload_Click" />

@@ -7,7 +7,7 @@
     <br />
     相册名字：<asp:TextBox ID="text" runat="server"></asp:TextBox>
     <br />
-    相册描述：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    相册描述：<asp:TextBox ID="TextBox1" TextMode="MultiLine" runat="server"></asp:TextBox>
     <br />
     相册状态:<asp:DropDownList ID="state" runat="server" ><asp:ListItem Value="1">所有人可见</asp:ListItem ><asp:ListItem Value="0">仅自己可见</asp:ListItem></asp:DropDownList>
     <br />

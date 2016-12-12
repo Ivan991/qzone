@@ -14,7 +14,7 @@
     ：
     <br />
    
-    <asp:TextBox ID="reportlog" runat="server" TextMode="SingleLine" ></asp:TextBox>
+    <asp:TextBox ID="reportlog"  runat="server" TextMode="MultiLine" ></asp:TextBox>
     <br />
     <asp:DropDownList ID="state" runat="server" ><asp:ListItem Selected="True" Value="1">所有人可见</asp:ListItem ><asp:ListItem Value="0">仅自己可见</asp:ListItem></asp:DropDownList>
     &nbsp;

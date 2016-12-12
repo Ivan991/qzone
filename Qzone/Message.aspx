@@ -10,7 +10,7 @@
     <asp:Label ID="lbreportmessage" runat="server" Text="发布留言"></asp:Label>
     ：
     <br />
-    <asp:TextBox ID="reportmessage" runat="server" TextMode="SingleLine" ></asp:TextBox>
+    <asp:TextBox ID="reportmessage" runat="server"  TextMode="MultiLine" ></asp:TextBox>
     <br />
     <asp:Button ID="btnreportmessage" runat="server" Text="发表"  OnClick="btnreportmessage_Click" />
     <br />

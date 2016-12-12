@@ -8,7 +8,7 @@
     <br />
     相册封面:<asp:FileUpload  ID="upload" runat="server" />
     <br />
-    相册描述:<asp:TextBox ID="describe" runat="server" ></asp:TextBox>
+    相册描述:<asp:TextBox ID="describe" TextMode="MultiLine" runat="server" ></asp:TextBox>
     <br />
     相册权限:<asp:DropDownList ID="state" runat="server" >
         <asp:ListItem Selected="True" Value="1">所有好友可见</asp:ListItem >

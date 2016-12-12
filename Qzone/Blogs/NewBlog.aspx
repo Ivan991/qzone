@@ -31,6 +31,8 @@
     <asp:TextBox ID="reporttitle" runat="server"  TextMode="SingleLine"></asp:TextBox>
     &nbsp;
     分类:<asp:DropDownList ID="category" runat="server"  ></asp:DropDownList>
+     <asp:LinkButton ID="add0" runat="server"  Text="日志未分类，请添加分类"  OnClick="add0_Click" Visible="false"></asp:LinkButton>
+
     &nbsp;
     权限:<asp:DropDownList ID="state" runat="server"  >
         <asp:ListItem Selected="True"  Value="1">所有人可见</asp:ListItem>

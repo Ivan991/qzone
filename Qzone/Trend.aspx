@@ -79,11 +79,8 @@
                     <%--选择到转发的分类--%>
                     <asp:DropDownList ID="DropDownList2" Visible="false" runat="server"></asp:DropDownList>
     <asp:LinkButton ID="add0" runat="server"  Text="日志未分类，请添加分类"  OnClick="add0_Click" Visible="false"></asp:LinkButton>
-
                             <%--转发权限--%>
                     <asp:DropDownList ID="reportstate2" runat="server" Visible="false" ><asp:ListItem Selected="True" Value="1">所有人可见</asp:ListItem ><asp:ListItem Value="0">仅自己可见</asp:ListItem></asp:DropDownList>
-             
-
                     <asp:Button ID="Button2" runat="server" Visible="false" Text="转发" CommandName="btnreporter2" CommandArgument='<%# Eval("Mark")+","+ Eval("Id") %>' />
                     <br />
                     <br />
@@ -102,9 +99,7 @@
                                 回复时间:<%#Eval("Dates") %>
                                 <br />
                                 <asp:LinkButton ID="delete2" runat="server" Text="删除" ToolTip="删除这条评论" Visible="false" CommandName="delete2" CommandArgument='<%# Eval("CommentId")+","+ Eval("ToId") %>'></asp:LinkButton>
-
                                 <br />
-
                                 <asp:Label ID="lb2" runat="server" Text="评论" Visible="false"></asp:Label>
 
                                 <asp:TextBox ID="comment2" runat="server" TextMode="SingleLine" Visible="false"></asp:TextBox>
@@ -154,13 +149,9 @@
                                 <asp:LinkButton ID="delete3" runat="server" Text="删除" ToolTip="删除这条评论" Visible="false" CommandName="delete3" CommandArgument='<%# Eval("CommentId")+","+ Eval("ToId") %>'></asp:LinkButton>
                                 <br />
                                 <asp:Label ID="lb3" runat="server" Text="评论" Visible="false"></asp:Label>
-
                                 <asp:TextBox ID="comment3" runat="server" TextMode="SingleLine" Visible="false"></asp:TextBox>
-
                                 <asp:Button ID="btncomment3" runat="server" Text="评论" Visible="false" CommandName="btncom3" CommandArgument='<%# Eval("UserId")+","+Eval("ToId")+","+ Eval("UserName") %>' />
-
                             </ItemTemplate>
-
                         </asp:Repeater>
                     </div>              
 

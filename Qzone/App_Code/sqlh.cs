@@ -91,7 +91,7 @@ public class sqlh
             ms.Close();
             //注意将文件流指针还原
             //fu.PostedFile.InputStream.Postion = 0;
-            foreach (FileExtension fe in fileEx)
+            foreach (FileExtension fe in fileEx) //遍历这个fe这个函数的文件类型 看看上传的文件是否符合
             {
                 if (Int32.Parse(fileclass) == (int)fe)
                     return true;
@@ -123,9 +123,9 @@ public class sqlh
 
     }
 
-   static public string change(string x)
+   static public string change(string x)//对富文本编辑器中获取的内容 html标签进行处理，避免它存到数据库的时候被转义
     {
-        x = x.Replace("&lt;", "<");
+        x = x.Replace("&lt;", "<");//对一些特殊字符进行替换
         x = x.Replace("&gt;", ">");
         x = x.Replace("&quot;", "\"");
 
@@ -200,7 +200,6 @@ public class sqlh
 
         return count;
     }
-
 
     static public DataTable sqlselect (string sql,SqlParameter[] a)   //sql select
     {

@@ -147,7 +147,7 @@ public partial class Trend : System.Web.UI.Page
         for (int i = 0; i < logdt.Rows.Count; i++)
         {
             DataRow dr = dt.NewRow();
-            dr["Mark"] = "0";//说说标志位1
+            dr["Mark"] = "0";//说说标志位0
             dr["Id"] = logdt.Rows[i][3].ToString();
             dr["PoId"] = logdt.Rows[i][4].ToString();
             dr["PoName"] = logdt.Rows[i][8].ToString();
@@ -164,7 +164,7 @@ public partial class Trend : System.Web.UI.Page
         for (int i = 0; i < logdt1.Rows.Count; i++)
         {
             DataRow dr = dt.NewRow();
-            dr["Mark"] = "0";//说说标志位1
+            dr["Mark"] = "0";//说说标志位0
             dr["Id"] = logdt1.Rows[i][0].ToString();
             dr["PoId"] = logdt1.Rows[i][1].ToString();
             dr["PoName"] = logdt1.Rows[i][5].ToString();
@@ -217,7 +217,7 @@ public partial class Trend : System.Web.UI.Page
         for (int i = 0; i < photodt.Rows.Count; i++)
         {
             DataRow dr = dt.NewRow();
-            dr["Mark"] = "2";//照片标志位1
+            dr["Mark"] = "2";//照片标志位2
             dr["Id"] = photodt.Rows[i][3].ToString();
             dr["PoId"] = photodt.Rows[i][4].ToString();
             dr["PoName"] = photodt.Rows[i][9].ToString();
@@ -235,7 +235,7 @@ public partial class Trend : System.Web.UI.Page
         for (int i = 0; i < photodt1.Rows.Count; i++)
         {
             DataRow dr = dt.NewRow();
-            dr["Mark"] = "2";//照片标志位1
+            dr["Mark"] = "2";//照片标志位2
             dr["Id"] = photodt1.Rows[i][0].ToString();
             dr["PoId"] = photodt1.Rows[i][1].ToString();
             dr["PoName"] = photodt1.Rows[i][6].ToString();

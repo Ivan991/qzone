@@ -6,7 +6,7 @@
 
     编辑照片描述
     <br />
-    <asp:TextBox ID="describe" runat="server" ></asp:TextBox>
+    <asp:TextBox ID="describe" TextMode="MultiLine" runat="server" ></asp:TextBox>
     <br />
     <asp:Button ID="btneditor" runat="server" Text="修改" OnClick="btneditor_Click" />
     &nbsp;

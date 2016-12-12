@@ -192,7 +192,7 @@ public partial class Informations_Information : System.Web.UI.Page
             lbTotal.Text = "1";
         else
 
-        lbTotal.Text = bind.Count.ToString();//设置总页数
+            lbTotal.Text = bind.PageCount.ToString();//设置总页数
 
         information.DataSource = bind;//把合并的表绑定到repeater
 

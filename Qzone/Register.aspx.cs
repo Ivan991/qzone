@@ -149,8 +149,15 @@ public partial class Register : System.Web.UI.Page
 
                                     string tobody = "亲爱的qq空间用户'" + name1 + "'，欢迎注册，您的注册确认验证码为'" + n + "'，请尽快确认噢，验证码在五分钟后失效";
 
-                                    sqlh.email(email1, totitle, tobody);    //执行发送邮件
+                                    try
+                                    {
 
+                                        sqlh.email(email1, totitle, tobody);    //执行发送邮件
+                                    }
+                                    catch
+                                    {
+                                        Response.Write("<script>alert('发送邮件失败请重试');location='/MyLogin.axpx'</script>");
+                                    }
                                 }
                                 else
 
