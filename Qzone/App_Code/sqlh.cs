@@ -137,7 +137,7 @@ public class sqlh
     {
         MailMessage mailObj = new MailMessage();
 
-        mailObj.From = new MailAddress("ivanleaves@sina.cn"); //发送人邮箱地址
+        mailObj.From = new MailAddress("lalalafunny99@sina.cn"); //发送人邮箱地址
 
         MailAddress messageto = new MailAddress(toemail);
 
@@ -157,7 +157,7 @@ public class sqlh
 
         smtp.UseDefaultCredentials = true;
 
-        smtp.Credentials = new System.Net.NetworkCredential("ivanleaves@sina.cn", "IvanLeaves^&");  //发送人的登录名和密码
+        smtp.Credentials = new System.Net.NetworkCredential("lalalafunny99@sina.cn", "lalalafunny99");  //发送人的登录名和密码
 
         smtp.Send(mailObj);
     }
